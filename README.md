@@ -18,7 +18,7 @@ If you want to use it with an external language, you must include the relevant l
 
 ```html
 <head>
-  <script src="kalipso.table.js">
+  <script src="l10n/[lang].js">
   ...
 </head>
 ```
