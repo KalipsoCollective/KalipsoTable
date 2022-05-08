@@ -1,51 +1,70 @@
+@keyframes kn-skeleton {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+@keyframes kn-skeleton-bar {
+  0% {
+    background-color: rgba(115, 115, 115, 0.2);
+  }
+  50% {
+    background-color: rgba(115, 115, 115, 0.1);
+  }
+  100% {
+    background-color: rgba(115, 115, 115, 0.2);
+  }
+}
+
 .table-row {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .table-row .column-25,
 .table-row .column-50,
 .table-row .column-100 {
-	padding-top: 0.1rem;
-	padding-bottom: 0.1rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
 }
 
-.table-row .column-25>input,
-.table-row .column-50>input,
-.table-row .column-100>input {
-	width: 100%;
-	max-width: 15rem
+.table-row .column-25 > input,
+.table-row .column-50 > input,
+.table-row .column-100 > input {
+    width: 100%;
+    max-width: 15rem
 }
 
-.table-row .column-25>select,
-.table-row .column-50>select,
-.table-row .column-100>select {
-	width: 100%;
-	max-width: 10rem
+.table-row .column-25 > select,
+.table-row .column-50 > select,
+.table-row .column-100 > select {
+    width: 100%;
+    max-width: 10rem
 }
 
 .table-row .column-25 {
-	flex: 0 0 auto;
-	width: 25%;
+    flex: 0 0 auto;
+    width: 25%;
 }
 
 .table-row .column-50 {
-	flex: 0 0 auto;
-	width: 50%;
+    flex: 0 0 auto;
+    width: 50%;
 }
 
 .table-row .column-100 {
-	flex: 0 0 auto;
-	width: 100%;
+    flex: 0 0 auto;
+    width: 100%;
 }
 
 .table-row input[data-full-search] {
-	margin-left: auto;
+    margin-left: auto;
 }
 
 table.kalipso-table {
 	margin-bottom: 0;
+	font-size: 0.7rem;color: #727272;
 }
 
 table.kalipso-table thead th.sort {
@@ -90,10 +109,10 @@ table.kalipso-table thead th.sort.desc:after {
 }
 
 .kalipso-pagination {
-	display: flex;
-	justify-content: flex-end;
-	flex-wrap: wrap;
-	flex-direction: row;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .kalipso-pagination ul {
@@ -104,7 +123,8 @@ table.kalipso-table thead th.sort.desc:after {
 	margin-top: 0.6rem;
 }
 
-.kalipso-pagination ul li {}
+.kalipso-pagination ul li {
+}
 
 .kalipso-pagination ul li a {
 	user-select: none;
@@ -149,4 +169,46 @@ table.kalipso-table thead th.sort.desc:after {
 
 .kalipso-pagination ul li:not(:last-child) a {
 	border-right-color: #cdcdcd
+}
+
+.kalipso-information {
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+.no_result_info {
+	font-weight: bold;
+	font-size: 1.2rem;
+	text-align: center;
+}
+
+.kalipso-table>:not(:first-child) {
+	border-top: 1px solid currentColor;
+}
+
+.kt-skeleton-bar {
+  position: relative;
+  display: block;
+  background-color: rgba(115, 115, 115, 0.2);
+  height: 1.2rem;
+  width: 100%;
+  border-radius: 0.2rem;
+  animation: kn-skeleton-bar 1s infinite;
+}
+.kt-skeleton-bar:after {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(100deg, rgba(255, 255, 255, 0) 8%, rgba(255, 255, 255, 0.5) 18%, rgba(255, 255, 255, 0) 33%);
+  background-size: 200% 100%;
+  animation: kn-skeleton 1s infinite;
+}
+
+.kn-loading-body {
+	cursor:  progress;
 }

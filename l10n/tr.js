@@ -5,7 +5,7 @@
  * {@link https://github.com/KalipsoCollective/KalipsoTable GitHub}
  */
 
-(function () {
+(function() {
 
     if (window.KalipsoTable === undefined) {
         window.KalipsoTable = {}
@@ -29,6 +29,7 @@
         "next": "Sonraki",
         "first": "İlk",
         "last": "Son",
+        "search": "ara",
     }
 
 })()

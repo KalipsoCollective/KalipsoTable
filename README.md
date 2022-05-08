@@ -33,48 +33,22 @@ You can trigger the KalipsoTable with the following setting block.
 ```js
   const options = {
     selector: "#usersTable",
-    language: "en",
+    language: "tr",
+    // server: true, // SERVER-SIDE
+    // source: 'http://webaddress.com/list',
+    server: false, // CLIENT-SIDE
     source: [
-      {
-        "id": 1,
-        "username": "test1",
-        "email": "test1@example.com",
-        "birthday": "07.07.2021",
-        "status": "active",
-        "action": "action"
-      },
-      {
-        "id": 5,
-        "username": "test5",
-        "email": "test5@example.com",
-        "birthday": "01.01.2021",
-        "status": "passive",
-        "action": "action"
-      },
-      {
-        "id": 4,
-        "username": "test4",
-        "email": "test4@example.com",
-        "birthday": "05.05.2021",
-        "status": "deleted",
-        "action": "action"
-      },
-      {
-        "id": 2,
-        "username": "test2",
-        "email": "test2@example.com",
-        "birthday": "09.12.2021",
-        "status": "active",
-        "action": "action"
-      },
-      {
-        "id": 3,
-        "username": "<div>test3</div>",
-        "email": "test3@example.com",
-        "birthday": "10.12.2021",
-        "status": "passive",
-        "action": "action"
-      }
+      {id: 1, u_name: 'alonzo', name: 'Alonzo Forza', email: 'alonzof@gmail.com', birth_date: '1996.08.14', role: 'admin', created: '2022.05.05', updated: '2022.05.05', status: 'active', action: '<button class="btn btn-danger btn-sm">Delete</button>'},
+      {id: 2, u_name: 'carlb', name: 'Carl Ben', email: 'carlb@gmail.com', birth_date: '1996.08.14', role: 'admin', created: '2022.05.06', updated: '2022.05.05', status: 'passive', action: '<button class="btn btn-danger btn-sm">Delete</button>'},
+      {id: 3, u_name: 'dan14edward', name: 'Dan Edward', email: 'dan14edward@outlook.com', birth_date: '1996.08.14', role: 'admin', created: '2022.05.08', updated: '2022.05.05', status: 'active', action: '<button class="btn btn-danger btn-sm">Delete</button>'},
+      {id: 4, u_name: 'hankfrank', name: 'Frank Hank', email: 'hankfrank@gmail.com', birth_date: '1996.08.14', role: 'admin', created: '2022.05.09', updated: '2022.05.05', status: 'active', action: '<button class="btn btn-danger btn-sm">Delete</button>'},
+      {id: 5, u_name: 'thomopeter22', name: 'Thomas Peter', email: 'thomopeter@hotmail.com', birth_date: '1996.08.14', role: 'admin', created: '2022.08.22', updated: '2022.05.05', status: 'passive', action: '<button class="btn btn-danger btn-sm">Delete</button>'},
+      {id: 6, u_name: 'time', name: 'Edward Tim', email: 'tim.edward@gmail.com', birth_date: '1996.08.14', role: 'admin', created: '2021.04.13', updated: '2022.05.05', status: 'active', action: '<button class="btn btn-danger btn-sm">Delete</button>'},
+      {id: 7, u_name: 'wm', name: 'Walter Monte', email: 'waltermontee@outlook.com', birth_date: '1996.08.14', role: 'admin', created: '2021.09.10', updated: '2022.05.05', status: 'active', action: '<button class="btn btn-danger btn-sm">Delete</button>'},
+      {id: 8, u_name: 'george.c', name: 'George Corte', email: 'george.c@gmail.com', birth_date: '1996.08.14', role: 'admin', created: '2022.07.12', updated: '2022.05.05', status: 'deleted', action: ''},
+      {id: 9, u_name: 'hi.ben', name: 'Ben Thomas', email: 'ben_thomas@gmail.com', birth_date: '1996.08.14', role: 'admin', created: '2020.05.24', updated: '2022.05.05', status: 'active', action: '<button class="btn btn-danger btn-sm">Delete</button>'},
+      {id: 10, u_name: 'otto_dan', name: 'Dan Otto', email: 'otto_dan@gmail.com', birth_date: '1996.08.14', role: 'admin', created: '2022.03.28', updated: '2022.05.05', status: 'deleted', action: ''},
+      {id: 11, u_name: 'kotto_dan', name: 'Kenau Dan Otto', email: 'kotto_dan@gmail.com', birth_date: '1996.08.14', role: 'admin', created: '2022.03.28', updated: '2022.05.05', status: 'deleted', action: ''}
     ],
     columns: [ 
       {
@@ -90,84 +64,90 @@ You can trigger the KalipsoTable with the following setting block.
       {
         "searchable": {
           "type": "text",
-          "maxlenght": 50
+          "maxlength": 50
         },
         "orderable": true,
-        "title": "Username",
-        "key": "username"
+        "title": "Kullanıcı Adı",
+        "key": "u_name"
       },
       {
         "searchable": {
           "type": "text",
-          "maxlenght": 50
+          "maxlength": 50
         },
         "orderable": true,
-        "title": "Email",
+        "title": "Ad",
+        "key": "name"
+      },
+      {
+        "searchable": {
+          "type": "text",
+          "maxlength": 50
+        },
+        "orderable": true,
+        "title": "Eposta Adresi",
         "key": "email"
       },
       {
         "searchable": {
-          "type": "text",
-          "maxlenght": 50
+          "type": "date",
         },
         "orderable": true,
-        "title": "Birthday",
-        "key": "birthday"
+        "title": "Doğum Tarihi",
+        "key": "birth_date"
+      },
+      {
+        "searchable": {
+          "type": "text",
+          "maxlength": 50
+        },
+        "orderable": true,
+        "title": "Rol",
+        "key": "role"
+      },
+      {
+        "searchable": {
+          "type": "date",
+          "maxlength": 50
+        },
+        "orderable": true,
+        "title": "Eklenme",
+        "key": "created"
+      },
+      {
+        "searchable": {
+          "type": "date",
+          "maxlength": 50
+        },
+        "orderable": true,
+        "title": "Güncellenme",
+        "key": "updated"
       },
       {
         "searchable": {
           "type": "select",
           "datas": [
-            {"value": 'active', "name": "Active"},
-            {"value": 'passive', "name": "Passive"},
-            {"value": 'deleted', "name": "Deleted"}
+            {"value": 'active', "name": "Aktif"},
+            {"value": 'passive', "name": "Pasif"},
+            {"value": 'deleted', "name": "Silinmiş"}
           ],
         },
         "orderable": true,
-        "title": "Status",
+        "title": "Durum",
         "key": "status"
       },
       {
         "searchable": false,
         "orderable": false,
-        "title": "",
+        "title": "İşlem",
         "key": "action"
       }
     ],
-    lengthOptions: [
-      {
-        "name": "10",
-        "value": 10,
-      },
-      {
-        "name": "1",
-        "value": 1,
-      },
-      {
-        "name": "50",
-        "value": 50,
-      },
-      {
-        "name": "100",
-        "value": 100,
-        "default": true
-      },
-      {
-        "name": "All",
-        "value": 0,
-      }
-    ],
-    customize: { // The example class definitions assume use with Bootstrap.
+    customize: {
       tableWrapClass: "table-responsive",
       tableClass: "table table-bordered",
-      tableHeadClass: "",
-      tableBodyClass: "",
-      tableFooterClass: "",
       inputClass: "form-control form-control-sm",
       selectClass: "form-control form-control-sm",
-      paginationUlClass: null,
-      paginationLiClass: null,
-      paginationAClass: null
     },
     tableHeader: {
       searchBar: true
@@ -179,3 +159,19 @@ You can trigger the KalipsoTable with the following setting block.
   };
   new KalipsoTable(options);
 ```
+
+### Server-side and KalipsoTable PHP Class
+
+Requests made on the server side are thrown with the GET method. The version information of KalipsoTable is carried in the header with the definition of X-KALIPSOTABLE. 
+You can use the XXX class written in PHP for server-side data manipulation and output.
+
+#### GET Parameters
+
+##### Request
+- per_page: ex. 5 || 10 || 100
+- order: ex. id,desc (with comma)
+- full_search: ex. Alex
+- search: ex: {"name": "Alex", "status", "active"} (as url encoded json)
+
+##### Response
+
