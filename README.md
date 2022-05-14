@@ -163,15 +163,17 @@ You can trigger the KalipsoTable with the following setting block.
 ### Server-side and KalipsoTable PHP Class
 
 Requests made on the server side are thrown with the GET method. The version information of KalipsoTable is carried in the header with the definition of X-KALIPSOTABLE. 
-You can use the XXX class written in PHP for server-side data manipulation and output.
+You can use the KalipsoTable class written in PHP for server-side data manipulation and output.
 
-#### GET Parameters
-
-##### Request
+#### Server-side Request
 - per_page: ex. 5 || 10 || 100
 - order: ex. id,desc (with comma)
 - full_search: ex. Alex
 - search: ex: {"name": "Alex", "status", "active"} (as url encoded json)
 
-##### Response
-
+#### Server-side Response
+- current_page: 1
+- filtered_count: 10
+- record_count: 325
+- records: [{id: "207", u_name: "jack-joe_25415", name: "Joe Jack", email: "jack-joe_25415@outlook.com",…},…]
+- total_page: 33
