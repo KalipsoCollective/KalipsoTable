@@ -15,7 +15,7 @@ class KalipsoTable {
    */
   constructor(options) {
 
-    this.version = '0.0.1';
+    this.version = '0.8.0';
     this.loading = false;
     this.result = [];
     this.server = false;
