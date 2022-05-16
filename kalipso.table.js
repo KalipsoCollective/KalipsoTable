@@ -15,7 +15,7 @@ class KalipsoTable {
    */
   constructor(options) {
 
-    this.version = '0.8.2';
+    this.version = '0.8.3';
     this.loading = false;
     this.result = [];
     this.server = false;
@@ -733,7 +733,6 @@ class KalipsoTable {
    */
   async sorting(element, index) {
 
-    console.log(element,);
     if (Array.from(element.classList).indexOf("asc") !== -1) { // asc
 
       element.classList.remove("asc")
