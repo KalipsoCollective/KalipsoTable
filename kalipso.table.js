@@ -15,7 +15,7 @@ class KalipsoTable {
    */
   constructor(options) {
 
-    this.version = '0.8.0';
+    this.version = '0.8.1';
     this.loading = false;
     this.result = [];
     this.server = false;
@@ -74,11 +74,11 @@ class KalipsoTable {
         {
           "name": "5",
           "value": 5,
-          "default": true
         },
         {
           "name": "10",
           "value": 10,
+          "default": true
         },
         {
           "name": "50",
@@ -243,6 +243,16 @@ class KalipsoTable {
     this.parent.innerHTML = schema;
 
     await this.prepareBody(true);
+  }
+
+  /**
+   * Reset Table
+   * @return void 
+   */
+  async reset() {
+    if (document.querySelector(this.selector)) {
+      await this.prepareBody(true);
+    }
   }
 
 

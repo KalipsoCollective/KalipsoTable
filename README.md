@@ -157,7 +157,16 @@ You can trigger the KalipsoTable with the following setting block.
       searchBar: true
     }
   };
-  new KalipsoTable(options);
+  const table = new KalipsoTable(options);
+```
+
+### API
+
+#### Reset
+
+If you want to reset the data table, you can use the **reset()** method.
+```js
+table.reset();
 ```
 
 ### Server-side and KalipsoTable PHP Class
