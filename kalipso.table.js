@@ -15,7 +15,7 @@ class KalipsoTable {
    */
   constructor(options) {
 
-    this.version = '0.8.1';
+    this.version = '0.8.2';
     this.loading = false;
     this.result = [];
     this.server = false;
@@ -251,7 +251,7 @@ class KalipsoTable {
    */
   async reset() {
     if (document.querySelector(this.selector)) {
-      await this.prepareBody(true);
+      await this.prepareBody(false);
     }
   }
 
@@ -731,8 +731,9 @@ class KalipsoTable {
    * @param object el       clicked button
    * @param integer index   for change action
    */
-  async sort(element, index) {
+  async sorting(element, index) {
 
+    console.log(element,);
     if (Array.from(element.classList).indexOf("asc") !== -1) { // asc
 
       element.classList.remove("asc")
@@ -827,7 +828,7 @@ class KalipsoTable {
         let target = event.target;
         if (target.nodeName === "TH" && target.hasAttribute("data-sort")) {
           event.preventDefault();
-          that.sort(target, target.cellIndex);
+          that.sorting(target, target.cellIndex);
         }
       }, {capture: true});
 
