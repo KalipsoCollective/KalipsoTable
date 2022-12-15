@@ -15,7 +15,7 @@ class KalipsoTable {
    */
   constructor(options) {
 
-    this.version = '0.8.5';
+    this.version = '0.8.6';
     this.loading = false;
     this.result = [];
     this.server = false;
@@ -29,6 +29,7 @@ class KalipsoTable {
     this.searchParams = {};
     this.search = "";
     this.listeners = [];
+    this.events = {};
 
 
     if (window.KalipsoTable === undefined) {
@@ -821,9 +822,14 @@ class KalipsoTable {
   eventListener(firstLoad = false) {
 
     let that = this;
+    this.parent.removeEventListener('click', this.events.parent_click);
+    this.parent.removeEventListener('change', this.events.parent_change);
+    this.parent.removeEventListener('keyup', this.events.parent_keyup);
+    document.querySelector(this.selector + ' [data-pagination]').removeEventListener('click', this.events.wrap_click);
+
     if (firstLoad) {
 
-      this.parent.addEventListener("click", function (event) {
+      this.events.parent_click = this.parent.addEventListener("click", function (event) {
         let target = event.target;
         if (target.nodeName === "TH" && target.hasAttribute("data-sort")) {
           event.preventDefault();
@@ -831,7 +837,7 @@ class KalipsoTable {
         }
       }, {capture: true});
 
-      this.parent.addEventListener("change", function (e) {
+      this.events.parent_change = this.parent.addEventListener("change", function (e) {
         let target = e.target;
         if (target.nodeName === "SELECT" && target.hasAttribute("data-perpage")) {
           e.preventDefault();
@@ -843,7 +849,7 @@ class KalipsoTable {
 
       }, {capture: true});
 
-      this.parent.addEventListener("keyup", function (e) {
+      this.events.parent_keyup = this.parent.addEventListener("keyup", function (e) {
           let target = event.target;
           if (e.target.nodeName === "INPUT" && target.hasAttribute("data-search")) {
             e.preventDefault();
@@ -863,7 +869,7 @@ class KalipsoTable {
 
     }
 
-    document.querySelector(this.selector + ' [data-pagination]').addEventListener("click", function (event) {
+    this.events.wrap_click = document.querySelector(this.selector + ' [data-pagination]').addEventListener("click", function (event) {
       let target = event.target;
       if (target.nodeName === "A" && target.hasAttribute("data-page")) {
         event.preventDefault();
